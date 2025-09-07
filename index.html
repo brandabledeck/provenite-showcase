@@ -340,7 +340,7 @@
 }
 </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5VWE851H6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -348,6 +348,29 @@
   gtag('js', new Date());
 
   gtag('config', 'G-C5VWE851H6');
+
+     // Track Afternic clicks
+  function trackAfternicClick() {
+    gtag('event', 'afternic_click', {
+      'event_category': 'conversion',
+      'event_label': 'buy_button'
+    });
+  }
+
+     // Track Make Offer clicks
+  function trackMakeOfferClick() {
+    gtag('event', 'makeoffer_click', {
+      'event_category': 'lead',
+      'event_label': 'contact'
+    });
+
+       // Track Purchase Domain clicks
+  function trackPurchaseDomainClick() {
+    gtag('event', 'purchasedomain_click', {
+      'event_category': 'lead',
+      'event_label': 'contact'
+    });
+  }
 </script>
     
 </head>
@@ -360,9 +383,9 @@
                 <li><a href="#analysis">Analysis</a></li>
                 <li><a href="#potential">Potential</a></li>
                 <li><a href="#market">Market</a></li>
-                <li><a href="#contact">Purchase</a></li>
+                <li><a href="#contact" onclick="trackPurchaseDomainClick()">Purchase</a></li>
             </ul>
-            <a href="#contact" class="cta-button">Make Offer</a>
+            <a href="#contact" class="cta-button" onclick="trackMakeOfferClick()">Make Offer</a>
         </nav>
     </header>
 
@@ -374,7 +397,7 @@
             <p>A powerful brandable domain perfect for validation platforms, proof services, or any business focused on proven results.</p>
             
             <div class="hero-buttons">
-                <a href="#contact" class="cta-button">Purchase Domain</a>
+                <a href="#contact" class="cta-button" onclick="trackPurchaseDomainClick()">Purchase Domain</a>
                 <a href="#analysis" class="cta-button secondary">See Analysis</a>
             </div>
         </div>
@@ -521,6 +544,7 @@
                     
                     <!-- REPLACE THIS URL WITH YOUR AFTERNIC CHECKOUT LINK -->
                     <a href="https://checkoutlink.godaddy.com/f3e03689-7050-4f0c-99b1-bd313912bd8c" 
+                       onclick="trackAfternicClick()" 
                        target="_blank" 
                        class="cta-button" 
                        style="display: inline-block; padding: 1.25rem 2.5rem; font-size: 1.1rem; margin: 0.5rem; background: #4ecdc4; border: none;">
