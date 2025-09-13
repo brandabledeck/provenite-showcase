@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Afternic - Provenite.com</title>
+    <meta name="description" content="Redirecting to secure Afternic purchase page for Provenite.com domain.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Automatic redirect -->
+    <meta http-equiv="refresh" content="3;url=https://checkoutlink.godaddy.com/f3e03689-7050-4f0c-99b1-bd313912bd8c">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .redirect-container {
+            max-width: 500px;
+            padding: 3rem 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+        
+        .redirect-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .loading {
+            margin: 2rem 0;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid #4ecdc4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .manual-link {
+            display: inline-block;
+            background: #4ecdc4;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .manual-link:hover {
+            transform: translateY(-2px);
+            background: #45b7aa;
+        }
+        
+        .back-link {
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+        
+        .back-link a:hover {
+            border-bottom: 1px solid white;
+        }
+        
+        .countdown {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4ecdc4;
+            margin: 1rem 0;
+        }
+    </style>
+    
+    <!-- Google Analytics (same as main site) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C5VWE851H6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C5VWE851H6');
+        
+        // Track redirect
+        gtag('event', 'afternic_redirect', {
+            'event_category': 'navigation',
+            'event_label': 'redirect_page'
+        });
+    </script>
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="logo">Provenite.com</div>
+        
+        <div class="redirect-message">
+            Redirecting you to secure Afternic purchase page...
+        </div>
+        
+        <div class="loading">
+            <div class="spinner"></div>
+            <div class="countdown" id="countdown">3</div>
+        </div>
+        
+        <p style="opacity: 0.8; margin-bottom: 1rem;">
+            🔒 Secure transaction with escrow protection
+        </p>
+        
+        <a href="https://checkoutlink.godaddy.com/f3e03689-7050-4f0c-99b1-bd313912bd8c" 
+           class="manual-link"
+           onclick="gtag('event', 'manual_afternic_click', {'event_category': 'conversion'});">
+            Continue to Afternic →
+        </a>
+        
+        <div class="back-link">
+            <a href="https://provenite.com" onclick="gtag('event', 'back_to_main', {'event_category': 'navigation'});">
+                ← Back to Provenite.com
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Automatic redirect with countdown
+        let countdownTimer = 3;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdown = setInterval(() => {
+            countdownTimer--;
+            countdownElement.textContent = countdownTimer;
+            
+            if (countdownTimer <= 0) {
+                clearInterval(countdown);
+                // Track the redirect
+                gtag('event', 'automatic_redirect', {
+                    'event_category': 'conversion',
+                    'event_label': 'afternic_page'
+                });
+                // Redirect
+                window.location.href = 'https://www.google.com';
+            }
+        }, 1000);
+        
+        // Immediate redirect if user has JavaScript disabled (fallback)
+        setTimeout(() => {
+            window.location.href = 'https://www.google.com';
+        }, 3000);
+    </script>
+</body>
+</html>
